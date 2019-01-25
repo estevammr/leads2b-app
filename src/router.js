@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from './store.js'
 import Home from './views/Home.vue'
+import About from './views/About.vue'
+import Login from './components/Login.vue'
+import Employee from './components/Employee.vue'
 
 Vue.use(Router)
 
@@ -12,6 +16,19 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/employee',
+      name: 'employee',
+      component: Employee,
+      meta: { 
+        requiresAuth: true
+      }
     },
     {
       path: '/about',
